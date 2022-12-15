@@ -121,7 +121,7 @@ class dashboardCard extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            // this is botton part
+            // this is bottom part
             Row(
               children: [
 
@@ -133,9 +133,9 @@ class dashboardCard extends StatelessWidget {
                     "assets/locations.png", miles.toStringAsFixed(1), "Miles"),
 
                 imageContainer('assets/calories.png',
-                    calories.toStringAsFixed(3), "Calories"),
+                    calories.toStringAsFixed(1), "Calories"),
                 imageContainer("assets/stopwatch.png",
-                   duration.toStringAsFixed(3), "Duration"),
+                   duration.toStringAsFixed(1), "Minutes"),
               ],
             ),
           ],

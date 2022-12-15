@@ -37,7 +37,7 @@ class _LoginPageState extends State<LoginPage> {
         padding: const EdgeInsets.all(20.0),
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('Photos/Baground.jpg'),
+            image: AssetImage('assets/charles.jpg'),
             fit: BoxFit.cover,
           ),
         ),
@@ -50,6 +50,7 @@ class _LoginPageState extends State<LoginPage> {
                     fontSize:45,
                     fontWeight: FontWeight.bold,
                     fontFamily: 'Roboto',
+                    color: Colors.white,
                 )
             ),
             SizedBox(height: 15,),

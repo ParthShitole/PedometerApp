@@ -22,7 +22,7 @@ class _dashboardState extends State<dashboard> {
 
   late Stream<StepCount> _stepCountStream;
   late Stream<PedestrianStatus> _pedestrianStatusStream;
-  String _status ='?', _steps = '?';
+  String _status ='?', _steps = '0';
 
 
   double miles = 0;
@@ -30,7 +30,7 @@ class _dashboardState extends State<dashboard> {
   double calories = 40.0;
   double addValue = 0.025;
   double percent = 0.5;
-  double target = 2000;
+  double target = 10000;
   int steps = 20;
   double previousDistacne = 0.0;
   double distance = 0.0;
@@ -88,7 +88,7 @@ class _dashboardState extends State<dashboard> {
                       ],
                     ),
                   ),
-                  dashboardCard(_steps,miles, calories, duration,0.5,target),
+                  dashboardCard(_steps,int.parse(_steps)/2000.0,int.parse(_steps)*0.04 , (int.parse(_steps)/2000.0)*20,(int.parse(_steps)/target),target),
                   //const dailyAverage(),
                 ],
               )
@@ -135,7 +135,7 @@ class _dashboardState extends State<dashboard> {
   void onStepCountError(error) {
   print('onStepCountError: $error');
   setState(() {
-  _steps = 'Step Count not available';
+  _steps = '0';
   });
   }
 
