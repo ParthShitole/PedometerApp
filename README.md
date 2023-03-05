@@ -1,4 +1,4 @@
-# untitled
+# Pedometer
 
 A new Flutter project.
 
