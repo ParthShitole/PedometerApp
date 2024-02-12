@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter/material.dart';
-import 'package:untitled/Widget/containerButton.dart';
-import 'package:untitled/Widget/dailyAverage.dart';
-import 'package:untitled/Widget/imageContainer.dart';
-import 'package:untitled/Widget/textWidget.dart';
+import 'package:PedoApp/Widget/containerButton.dart';
+import 'package:PedoApp/Widget/dailyAverage.dart';
+import 'package:PedoApp/Widget/imageContainer.dart';
+import 'package:PedoApp/Widget/textWidget.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 

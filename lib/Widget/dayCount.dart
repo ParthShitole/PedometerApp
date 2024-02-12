@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:untitled/Widget/textWidget.dart';
+import 'package:PedoApp/Widget/textWidget.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
 class circularDay extends StatelessWidget {

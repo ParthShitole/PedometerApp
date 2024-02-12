@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:untitled/Widget/textWidget.dart';
+import 'package:PedoApp/Widget/textWidget.dart';
 
 class imageContainer extends StatelessWidget {
   String imagePath, number, textTitle;

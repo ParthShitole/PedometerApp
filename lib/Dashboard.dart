@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:untitled/Widget/DashBoardCard.dart';
-import 'package:untitled/Widget/topTextButton.dart';
-import 'package:untitled/Widget/dailyAverage.dart';
-import 'package:untitled/Widget/containerButton.dart';
-import 'package:untitled/Daily.dart';
-import 'package:untitled/Plan.dart';
-import 'package:untitled/Widget/buttonNav.dart';
+import 'package:PedoApp/Widget/DashBoardCard.dart';
+import 'package:PedoApp/Widget/topTextButton.dart';
+import 'package:PedoApp/Widget/dailyAverage.dart';
+import 'package:PedoApp/Widget/containerButton.dart';
+import 'package:PedoApp/Daily.dart';
+import 'package:PedoApp/Plan.dart';
+import 'package:PedoApp/Widget/buttonNav.dart';
 import 'package:pedometer/pedometer.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'dart:async';
 
 class dashboard extends StatefulWidget {
@@ -23,14 +24,14 @@ class _dashboardState extends State<dashboard> {
   late Stream<StepCount> _stepCountStream;
   late Stream<PedestrianStatus> _pedestrianStatusStream;
   String _status ='?', _steps = '0';
-
+  //String _Flag = "BITSCTF{correct_flag}";
 
   double miles = 0;
   double duration = 30.0;
   double calories = 40.0;
   double addValue = 0.025;
   double percent = 0.5;
-  double target = 10000;
+  double target = 1000000;
   int steps = 20;
   double previousDistacne = 0.0;
   double distance = 0.0;
@@ -111,43 +112,46 @@ class _dashboardState extends State<dashboard> {
   }
 
   void onStepCount(StepCount event) {
-  print(event);
+  // print(event);
   setState(() {
   _steps = event.steps.toString();
   });
   }
 
   void onPedestrianStatusChanged(PedestrianStatus event) {
-  print(event);
+  // print(event);
   setState(() {
   _status = event.status;
   });
   }
 
   void onPedestrianStatusError(error) {
-  print('onPedestrianStatusError: $error');
+  // print('onPedestrianStatusError: $error');
   setState(() {
   _status = 'Pedestrian Status not available';
   });
-  print(_status);
+  // print(_status);
   }
 
   void onStepCountError(error) {
-  print('onStepCountError: $error');
+  // print('onStepCountError: $error');
   setState(() {
-  _steps = '0';
+  _steps = '69';
   });
   }
 
-  void initPlatformState() {
-  _pedestrianStatusStream = Pedometer.pedestrianStatusStream;
-  _pedestrianStatusStream
-      .listen(onPedestrianStatusChanged)
-      .onError(onPedestrianStatusError);
+  Future<void> initPlatformState() async {
+  if (await Permission.activityRecognition.request().isGranted) {
+    _pedestrianStatusStream = Pedometer.pedestrianStatusStream;
+    _pedestrianStatusStream
+        .listen(onPedestrianStatusChanged)
+        .onError(onPedestrianStatusError);
 
-  _stepCountStream = Pedometer.stepCountStream;
-  _stepCountStream.listen(onStepCount).onError(onStepCountError);
+    _stepCountStream = Pedometer.stepCountStream;
+    _stepCountStream.listen(onStepCount).onError(onStepCountError);
+    }else{
 
+    }
   if (!mounted) return;
   }
 

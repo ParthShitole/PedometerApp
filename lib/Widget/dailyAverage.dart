@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:untitled/Widget/dayCount.dart';
-import 'package:untitled/Widget/textWidget.dart';
+import 'package:PedoApp/Widget/dayCount.dart';
+import 'package:PedoApp/Widget/textWidget.dart';
 
 class dailyAverage extends StatelessWidget {
   const dailyAverage({Key? key}) : super(key: key);

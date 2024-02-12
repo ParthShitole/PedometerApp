@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:untitled/widget/IconColumn.dart';
+import 'package:PedoApp/widget/IconColumn.dart';
 
 class buttonNav extends StatelessWidget {
   const buttonNav({Key? key}) : super(key: key);

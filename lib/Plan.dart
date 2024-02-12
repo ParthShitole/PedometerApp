@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:untitled/Dashboard.dart';
-import 'package:untitled/Widget/DashBoardCard.dart';
-import 'package:untitled/Widget/topTextButton.dart';
-import 'package:untitled/Widget/containerButton.dart';
-import 'package:untitled/Daily.dart';
+import 'package:PedoApp/Dashboard.dart';
+import 'package:PedoApp/Widget/DashBoardCard.dart';
+import 'package:PedoApp/Widget/topTextButton.dart';
+import 'package:PedoApp/Widget/containerButton.dart';
+import 'package:PedoApp/Daily.dart';
+import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
 
 class plan extends StatefulWidget {
 
@@ -54,7 +55,7 @@ class _plan extends State<plan> {
                               topText("Plan", true, () {
                                 print("This was tapped");
                               }),
-                              topText("Daily", false, () {
+                              topText("Stats", false, () {
                                 Navigator.of(context).push(MaterialPageRoute(builder:(context)=>daily()));
                               }),
                               // this is the farthest button
@@ -65,14 +66,34 @@ class _plan extends State<plan> {
                                 Icons.arrow_drop_down,
                                 size: 50,
                                 color: Colors.white,
+
                               )),
+
                             ],
                           ),
                         ),
+                        SizedBox(height:25),
+                        ElevatedButton(
+                            onPressed: () {
+                              DatePicker.showDatePicker(context,
+                                  showTitleActions: true,
+                                  minTime: DateTime(2018, 3, 5),
+                                  maxTime: DateTime(2019, 6, 7), onChanged: (date) {
+                                    print('change $date');
+                                  }, onConfirm: (date) {
+                                    print('confirm $date');
+                                    Navigator.of(context).push(MaterialPageRoute(builder:(context)=>daily()));
+                                  }, currentTime: DateTime.now(), locale: LocaleType.en);
+                            },
+                            child: Text(
+                              'Select Date & Time',
+                              style: TextStyle(color: Colors.white,fontSize: 20),
+                            )),
                       ],
                     )
                 )
-            )
+            ),
+
           ],
         )
     );

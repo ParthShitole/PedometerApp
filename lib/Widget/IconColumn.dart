@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:untitled/widget/textWidget.dart';
+import 'package:PedoApp/widget/textWidget.dart';
 
 class iconColumn extends StatelessWidget {
   Icon icons;
